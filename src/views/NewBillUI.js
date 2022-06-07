@@ -2,6 +2,7 @@ import VerticalLayout from './VerticalLayout.js'
 
 export default () => {
 
+
   return (`
     <div class='layout'>
       ${VerticalLayout(120)}
@@ -32,7 +33,7 @@ export default () => {
                   </div>
                   <div class="col-half">
                     <label for="datepicker" class="bold-label">Date</label>
-                    <input required type="date" class="form-control blue-border" data-testid="datepicker" />
+                    <input id="datepicker" required type="date" min='2000-01-01' class="form-control blue-border max-today" data-testid="datepicker" />
                   </div>
                   <div class="col-half">
                     <label for="amount" class="bold-label">Montant TTC </label>
@@ -74,3 +75,9 @@ export default () => {
     </div>
   `)
 }
+
+$(function(){
+    $('[type="date"].max-today').prop('max', function(){
+        return new Date().toJSON().split('T')[0];
+    });
+});

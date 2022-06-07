@@ -241,19 +241,19 @@ describe('Given I am connected as an employee', () => {
 
             // Init newBill
             const newBill = {
-                id: 'eoKIpYhECmaZAGRrHjaC',
-                status: 'refused',
-                pct: 10,
-                amount: 500,
-                email: 'john@doe.com',
-                name: 'Facture 236',
-                vat: '60',
-                fileName: 'preview-facture-free-201903-pdf-1.jpg',
-                date: '2021-03-13',
-                commentAdmin: 'à valider',
-                commentary: 'A déduire',
-                type: 'Restaurants et bars',
-                fileUrl: 'https://saving.com',
+                id: request.id,
+                status: request.status,
+                pct: request.pct,
+                amount: request.amount,
+                email: request.email,
+                name: request.name,
+                vat: request.vat,
+                fileName: request.filename,
+                date: request.date,
+                commentAdmin: request.commentAdmin,
+                commentary: request.commentary,
+                type: request.type,
+                fileUrl: request.fileUrl,
             };
             const bills = await firebase.post(newBill);
 
